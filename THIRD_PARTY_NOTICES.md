@@ -1,6 +1,6 @@
 # Video Repair Tool — Third-Party Notices
 
-Video Repair Tool 1.9.1 includes TkinterDnD2 0.6.2 and its TkDND native extension
+Video Repair Tool 1.9.2 includes TkinterDnD2 0.6.2 and its TkDND native extension
 for Windows Explorer drag-and-drop. The executable is created with PyInstaller
 and includes the Python runtime and Tcl/Tk components required to start the GUI.
 

@@ -8,8 +8,8 @@ without re-encoding before using decoded recovery when necessary.
 
 ## Download and start
 
-Download **Video-Repair-Tool-v1.9.1-Windows-x64.zip** from the
-[v1.9.1 release](https://github.com/skv89/video-repair-tool/releases/tag/v1.9.1).
+Download **Video-Repair-Tool-v1.9.2-Windows-x64.zip** from the
+[v1.9.2 release](https://github.com/skv89/video-repair-tool/releases/tag/v1.9.2).
 Extract the entire ZIP to a writable folder and run **Video Repair Tool.exe**.
 The executable includes its GUI runtime; a separate Python installation is not
 required. This repository distributes the portable application, not its source.
@@ -26,30 +26,18 @@ required. This repository distributes the portable application, not its source.
 - The executable is unsigned; Windows may display a SmartScreen warning.
   Verify the ZIP checksum in the release notes before running it.
 
-## What's new since v1.8.4
+## What's new in v1.9.2
 
-Version 1.9.1 improves Windows usability, hardware compatibility, and preservation
-of interlaced video while keeping Automatic repair no-reencode-first.
-
-- Normal launches open maximized. Required controls remain visible in smaller
-  usable window areas, and file-list rows follow the display font size.
-- A compact layout removes the duplicate heading. Output-profile status stays
-  on one line; click it or **Profile details** for the complete explanation.
-  An original video-frame logo replaces the default Windows application icon.
-- Source field-order analysis rejects incomplete or contradictory observations.
-  Interlaced pixel-format conversion preserves the separate fields rather than
-  mixing their chroma. Source-matched FFV1 avoids unnecessary pixel conversion.
-- Unspecified pixel aspect ratio is preserved by supported CPU output paths.
-  NVIDIA output profiles that would insert a square-pixel default are blocked
-  early for these sources, with a source-matched FFV1 recommendation.
-- Hardware availability is checked using bounded runtime operations, including
-  the actual HEVC/AV1 quality settings, instead of compiled codec names alone.
-- Startup checks focus on repair dependencies. Dependency Doctor remains usable
-  after tool-discovery failures.
-- Safer cancellation and shutdown, mutually exclusive background operations,
-  bounded folder import, and protection against changed sources and output-name
-  collisions with other queued sources.
-- Stream-copy repair remains available when an FFmpeg build lacks FFV1.
+- Corrects frame counting during **Deep Verify** and repaired-output validation
+  for videos with uneven or closely spaced timestamps.
+- Counts the pictures actually decoded without forcing them onto a fixed-rate
+  clock. Corruption checks remain strict.
+- Detects FFV1 checksum errors even when the decoder keeps running. Automatic
+  repair confirms damage and attempts a separate, validated recovery copy.
+- Handles cancellation during final repair checks more reliably and preserves
+  any previous completed output when replacement is canceled.
+- Keeps Automatic repair no-reencoding-first. Quality settings and field
+  preservation are unchanged. These fixes add no extra routine full-file scan.
 
 ## Batch workflow
 
